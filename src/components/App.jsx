@@ -1,3 +1,4 @@
+import Phonebook from "./Phonebook/phonebook";
 export const App = () => {
   return (
     <div
@@ -10,7 +11,9 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React
+      
+      <Phonebook></Phonebook>
+
     </div>
   );
 };

@@ -23,7 +23,7 @@ export default class Phonebook extends Component {
         number: PropTypes.string.isRequired,
       })
     ),
-    filter: PropTypes.string.isRequired,
+    filter: PropTypes.string,
   };
 
   handleChangeFilter = (event) => {
@@ -31,11 +31,23 @@ export default class Phonebook extends Component {
   };
 
   handleSubmit = (newContact) => {
+    const { contacts } = this.state;
+
     
+    const contactExists = contacts.some(
+      (contact) => contact.name.toLowerCase() === newContact.name.toLowerCase()
+    );
+
+    if (contactExists) {
+      alert(`${newContact.name} is already in contacts`);
+      return;
+    }
+
     this.setState((prevState) => ({
       contacts: [...prevState.contacts, newContact],
     }));
   };
+
 
   handleDelete = (id) => {
     this.setState((prevState) => ({

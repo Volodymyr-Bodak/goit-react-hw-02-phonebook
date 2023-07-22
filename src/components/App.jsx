@@ -12,7 +12,7 @@ export const App = () => {
       }}
     >
       
-      <Phonebook></Phonebook>
+     <Phonebook/>
 
     </div>
   );

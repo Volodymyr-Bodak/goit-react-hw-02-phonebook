@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ContactListItem from "./ContactListItem";
+import ContactListItem from "./Phonebook/ContactListItem";
 
 const ContactList = ({ contacts, handleDelete }) => {
   return (

@@ -1,29 +1,13 @@
 import React, { Component } from "react";
-import ContactForm from "components/Phonebook/contactform";
-import ContactList from "components/Phonebook/contactlist";
-import Filter from "components/Phonebook/filter";
-import PropTypes from "prop-types"
+import ContactForm from "./ContatForm/Contactform";
+import ContactList from "./Contactlist";
+import Filter from "./Filter";
+import PropTypes from "prop-types";
 
 export default class Phonebook extends Component {
   state = {
-    contacts: [
-      {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-      {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-      {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-      {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
-    ],
+    contacts: [],
     filter: "",
-  };
-  
-  static propTypes = {
-    contacts: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-      })
-    ),
-    filter: PropTypes.string,
   };
 
   handleChangeFilter = (event) => {
@@ -33,7 +17,6 @@ export default class Phonebook extends Component {
   handleSubmit = (newContact) => {
     const { contacts } = this.state;
 
-    
     const contactExists = contacts.some(
       (contact) => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
@@ -47,7 +30,6 @@ export default class Phonebook extends Component {
       contacts: [...prevState.contacts, newContact],
     }));
   };
-
 
   handleDelete = (id) => {
     this.setState((prevState) => ({
@@ -71,8 +53,16 @@ export default class Phonebook extends Component {
         <ContactList contacts={filteredContacts} handleDelete={this.handleDelete} />
       </div>
     );
-    
-    
   }
 }
 
+Phonebook.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired
+  ),
+  filter: PropTypes.string,
+};

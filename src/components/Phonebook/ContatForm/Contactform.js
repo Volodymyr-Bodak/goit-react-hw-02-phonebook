@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styles from 'components/ContatForm/ContactForm.module.css'
+import styles from 'components/Phonebook/ContatForm/ContactForm.module.css'
 export default class ContactForm extends Component {
  
 

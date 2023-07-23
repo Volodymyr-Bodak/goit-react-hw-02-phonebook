@@ -4,7 +4,7 @@ import ContactList from "./Contactlist";
 import Filter from "./Filter";
 import PropTypes from "prop-types";
 
-export default class Phonebook extends Component {
+class Phonebook extends Component {
   state = {
     contacts: [],
     filter: "",
@@ -66,3 +66,4 @@ Phonebook.propTypes = {
   ),
   filter: PropTypes.string,
 };
+export default Phonebook;
